@@ -1,63 +1,37 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+Sebuah apilikasi Website untuk Pendaftaran Siswa Baru menggunakan Laravel PHP, MySQL database, dan Bootstrap.
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Disini untuk melakukan Testing terhadap REST API, saya menggunakan tools Postman sebagai Testing Tools untuk REST API saya.
 
-## About Laravel
+Jadi pertama buka XAMPP dan klik start untuk Apache dan MySQL.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Lalu buka localhost/phpmyadmin dan buat database baru bernama laravel-crud, setelah itu buka project nya, buka terminal dan ketik php artisan migrate untuk melakukan migration ke database. Tetapi pastikan di file .env memiliki nama DB_DATABASE yang sama dengan nama database nya yaitu laravel-crud. untuk username dan passwordnya sesuaikan dengan konfigurasi database Anda pribadi.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Setelah dimigrate, buka terminal dan ketik php artisan serve untuk menjalankan projectnya. Setelah itu kita akan diberikan sebuah link yang berdasarkan IP kita pribadi. Misalkan di saya yaitu http://http://127.0.0.1:8000. Setelah itu, copy link tersebut sesuai dengan IP anda, lalu buka browser dan paste link tersebut. Setelah terbuka, klik tulisan Home untuk diredirect ke page siswa yang berisi list dari data siswa. Atau kita juga bisa menggunakan http://<ip_link>/siswa , contoh di saya http://http://127.0.0.1:8000/siswa.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Setelah itu tabel berisi list dari data siswa akan muncul pada page tersebut. Namun karena kita belum mengisi database apa apa, maka akan kosong, dan kita perlu membuat dan mengisi kolom-kolom tersebut. Klik tombol Tambah Data Siswa pada kanan atas. Setelah itu, akan muncul sebuah form yang nanti kita akan isi untuk nantinya dimasukan ke database dan ditampilkan di tabel nya
 
-## Learning Laravel
+lalu setelah memasukan beberapa data, kita bisa melihat 3 tombol di kolom aksi.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+//edit siswa di database by ID untuk mengedit dan mengupdate data pada siswa tertentu, atau pada ini id tertentu, klik tombol edit, maka kita akan di pindahkan ke page http://<ip_link>/siswa/{id}/edit atau pada saya yaitu http://127.0.0.1:8000/siswa/{id}/edit , misalnya http://127.0.0.1:8000/siswa/1/edit dimana angka 1 adalah id yang nantinya akan ada form pada page tersebut. kita bisa mengedit dan mengubah data form tersebut sesuai dengan id siswa yang telah dipilih atau juga sesuai dengan id yang ada di link tersebut. Setelah kita submit, maka kita akan di kembalikan ke page http://127.0.0.1:8000/siswa untuk melihat list dari data siswa.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+//delete siswa di database by ID kita bisa menghapus data siswa berdasarkan id di kolomnya dengan klik tombol delete. nanti kita akan diberikan sebuah pilihan "yakin ingin menghapus?", lalu klik ya untuk menghapus data siswa tersebut.
 
-## Laravel Sponsors
+//get Data Siswa By ID di database dengan melakukan klik pada tombol Info, kita akan di redirect ke page /siswa/{id} atau http://127.0.0.1:8000/siswa/{id} dimana kita bisa melihat hanya ada data siswa berdasarkan id yang telah kita tentukan di link atau yang telah kita klik di tombol Info tadi.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+fitur-fitur diatas menggunakan database untuk memanipulasi data, kali ini kita akan menggunakan REST API untuk memanipulasi data tersebut.
 
-### Premium Partners
+Karena saya menggunakan Postman sebagai testing tools API saya , maka kita akan menggunakan Postman untuk melakukan testing pada REST API kita.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/)**
-- **[OP.GG](https://op.gg)**
+Untuk pemula pengguna Postman, kita hanya perlu membuka tab API di sebelah paling kiri, lalu di tengah nantinya akan ada tab Overview, klik icon '+' di sebelah kanannya. Lalu akan muncul sebuah Method seperti GET,POST,PUT,DELETE yang nanti tinggal kita pilih sesuai kebutuhan kita. Lalu di sebelahnya ada sebuah space yang digunakan untuk memasukan BASE_url dari REST API yang akan kita gunakan nantinya.
 
-## Contributing
+//GET LIST REST API DATA Untuk mendapatkan list dari semua data di REST API kita, pilih method GET, masukan http://<ip_link>/api/siswa. Sebagai contoh saya akan memasukan http://127.0.0.1:8000/api/siswa. Selanjutnya klik send, maka Postman akan mengirimkan request ke REST API tersebut dan REST API akan memberikan response list-list dari data siswa yang ada dalam format JSON.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+//GET DATA SISWA BY ID FROM REST API Untuk mendapatkan data siswa berdasarkan ID nya, caranya hampir sama seperti cara GET di atas, kita hanya perlu menambahkan /{id} di link tadi. misalkan http://<ip_link>/api/siswa/{id} atau seperti di saya contohnya http://127.0.0.1:8000/api/siswa/{id} (id terserah kita sesuai dengan kemauan kita ingin menampilkan data dari id mana). Bila gagal kita akan mendapat response "message":"Student not found"
 
-## Code of Conduct
+//POST DATA SISWA WITH REST API Untuk membuat data siswa dengan REST API, kita perlu menggunakan method post. Maka dari itu, ganti method GET ke method POST. Masukan url http://127.0.0.1:8000/api/siswa/create (Seperti yang dibilang sebelumnya, ikuti ip address masing-masing, misal ip anda adalah 8080, maka gunakan 8080 , bukan 8000 sebagai contoh) , lalu dibawah nya pilih tab body, lalu klik raw, dan pilih dari Text menjadi JSON di sebelah kanan raw. Lalu kita bisa membuat data baru dengan format JSON sepert ini: { "nama_depan":"Salim", "nama_belakang":"Sudhoyono", "jenis_kelamin":"L", "agama":"Islam", "alamat":"Jakarta" } lalu klik send. Maka REST API akan memberikan response "message" : "student record created" bila berhasil. silahkan gunakan method GET untuk memastikan dan melakukan cek apakah data masuk.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+//PUT DATA SISWA BY ID WITH REST API kita bisa update data siswa tersebut dengan menggunakan method PUT di REST API. Pilih method sebelumnya menjadi PUT dan masukan URL nya menjadi http://127.0.0.1:8000/api/siswa/{id} (seperti biasa, ikuti IP anda). lalu klik raw, dan pilih dari Text menjadi JSON di sebelah kanan raw. Lalu kita bisa melakukan update dengan format JSON. ID di sini harus sesuai dengan ID data siswa yang ingin kita update. Silahkan gunakan method GET untuk mengetahui id dari siswa tertentu. Gunakan format JSON. Contohnya bila kita ingin update data Salim Sudhyono di atas maka masukan id Salim Sudhyono di link yang dimasukan di method PUT tadi. Update bisa dilakukan seperti ini: { "alamat":"Bekasi" } Maka bila berhasil, REST API akan memberikan response "message":"records updated successfully", bila gagal maka kita akan mendapatkan response "message":"Student not found". Bila berhasil maka data Salim Sudhoyono akan menjadi seperti ini { "nama_depan":"Salim", "nama_belakang":"Sudhoyono", "jenis_kelamin":"L", "agama":"Islam", "alamat":"Bekasi" } Silahkan membuka method GET untuk memastikan apakah data tersebut sudah terupdate atau belum.
 
-## Security Vulnerabilities
+//DELETE DATA SISWA BY ID WITH REST API Kita bisa menghapus data sisa tertentu berdasarkan id nya dengan menggantikan method sebelumnya menjadi method DELETE. Lalu masukan URL http://<ip_link>/api/siswa/{id} (lakukan seperti biasa misalnya di saya http://127.0.0.1:8000/api/siswa/{id}). lalu klik send, maka Postman akan mengirimkan request DELETE ke REST API dan bila berhasil kita akan mendapatkan response "message":"records deleted". Bila gagal kita akan mendapat response "message":"siswa not found". Silahkan gunakan method GET untuk memastikan apakah data tersebut sudah terhapus atau tidak.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-# Daftar-siswa-baru
+Demikianlah Dokumentasi apilikasi dari saya. Atas perhatiannya, saya ucapkan terimakasih.
