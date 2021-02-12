@@ -38,7 +38,7 @@
                         <td>
                         <a href="/siswa/{{$siswa->id}}/edit" class="btn btn-warning btn-sn">Edit</a>
                         <a href="/siswa/{{$siswa->id}}/delete" class="btn btn-danger btn-sn" onclick="return confirm('Yakin Mau Diapus?')">Delete</a>
-                        <a href="api/siswa/{{$siswa->id}}" class="btn btn-info btn-sn">Info</a>
+                        <a href="/siswa/{{$siswa->id}}" class="btn btn-info btn-sn">Info</a>
                         </td>
                     </tr>
                     @endforeach
