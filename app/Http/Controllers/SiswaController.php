@@ -11,7 +11,7 @@ class SiswaController extends Controller
     {
         //$data_siswa = DB::table('siswa')->get(); -> sama aja ama yang dibawah
         //$data_siswa = DB::table('siswa')->where('nama_depan','jemmi')->get();
-        $data_siswa = \App\Models\Siswa::all();
+        $data_siswa = Siswa::paginate(10);
         return view('siswa.index',['data_siswa' =>$data_siswa]);
     }
     

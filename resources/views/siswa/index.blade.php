@@ -19,29 +19,33 @@
                 </div>
                 
                 <table class="table table-hover">
-                    <tr>
-                        <th>NAMA DEPAN</th>
-                        <th>NAMA BELAKANG</th>
-                        <th>JENIS KELAMIN</th>
-                        <th>AGAMA</th>
-                        <th>ALAMAT</th>
-                        <th>AKSI</th>
-                    </tr>
+                    <thead>
+                        <tr>
+                            <th>NAMA DEPAN</th>
+                            <th>NAMA BELAKANG</th>
+                            <th>JENIS KELAMIN</th>
+                            <th>AGAMA</th>
+                            <th>ALAMAT</th>
+                            <th>AKSI</th>
+                        </tr>
+                    </thead>
                     <!-- penamaan $siswa bebas, bisa $siswaz -->
-                    @foreach($data_siswa as $siswa)
-                    <tr>
-                        <td>{{$siswa->nama_depan}}</td>
-                        <td>{{$siswa->nama_belakang}}</td>
-                        <td>{{$siswa->jenis_kelamin}}</td>
-                        <td>{{$siswa->agama}}</td>
-                        <td>{{$siswa->alamat}}</td>
-                        <td>
-                        <a href="/siswa/{{$siswa->id}}/edit" class="btn btn-warning btn-sn">Edit</a>
-                        <a href="/siswa/{{$siswa->id}}/delete" class="btn btn-danger btn-sn" onclick="return confirm('Yakin Mau Diapus?')">Delete</a>
-                        <a href="/siswa/{{$siswa->id}}" class="btn btn-info btn-sn">Info</a>
-                        </td>
-                    </tr>
-                    @endforeach
+                    <tbody>
+                        @foreach($data_siswa as $siswa)
+                        <tr>
+                            <td>{{$siswa->nama_depan}}</td>
+                            <td>{{$siswa->nama_belakang}}</td>
+                            <td>{{$siswa->jenis_kelamin}}</td>
+                            <td>{{$siswa->agama}}</td>
+                            <td>{{$siswa->alamat}}</td>
+                            <td>
+                            <a href="/siswa/{{$siswa->id}}/edit" class="btn btn-warning btn-sn">Edit</a>
+                            <a href="/siswa/{{$siswa->id}}/delete" class="btn btn-danger btn-sn" onclick="return confirm('Yakin Mau Diapus?')">Delete</a>
+                            <a href="/siswa/{{$siswa->id}}" class="btn btn-info btn-sn">Info</a>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
                 </table>
             </div>
         </div>
@@ -91,7 +95,7 @@
                                 </form>
                                 </div>
                             </div>
-                        </div>
+        </div>
 @endsection                    
     
 
