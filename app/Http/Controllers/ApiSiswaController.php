@@ -51,13 +51,11 @@ class ApiSiswaController extends Controller
     public function getStudentById($id){
         if (Siswa::where('id', $id)->exists()) {
             $murid = Siswa::where('id',$id)->get()->toJson(JSON_PRETTY_PRINT);
-        //     return response($murid, 200);
-        //   } else {
-        //     return response()->json([
-        //       "message" => "Student not found"
-        //     ], 404);
-        return view('siswa.indexById',['siswa'=> $murid]);
-        
+            return response($murid, 200);
+          } else {
+            return response()->json([
+              "message" => "Student not found"
+            ], 404);
           }
     }
 
